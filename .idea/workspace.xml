@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc6c45ed-acc3-4088-bf1b-e2a02f35a92d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/bot/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/command_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/data/pies/1943743848.png" beforeDir="false" afterPath="$PROJECT_DIR$/bot/data/pies/1943743848.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/data/purchases/1943743848.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot/data/purchases/1943743848.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/markups.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/markups.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/phrases.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/phrases.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/purchase_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/purchase_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +94,7 @@
       <workItem from="1671222783808" duration="33820000" />
       <workItem from="1671417433373" duration="9669000" />
       <workItem from="1671530201109" duration="33000" />
-      <workItem from="1671842782379" duration="8785000" />
+      <workItem from="1671842782379" duration="9518000" />
     </task>
     <servers />
   </component>
@@ -119,7 +113,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HW_project$bot.coverage" NAME="bot Coverage Results" MODIFIED="1671875968929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bot" />
+    <SUITE FILE_PATH="coverage/HW_project$bot.coverage" NAME="bot Coverage Results" MODIFIED="1671876554574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bot" />
     <SUITE FILE_PATH="coverage/HW_project$main.coverage" NAME="main Coverage Results" MODIFIED="1671161200099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
