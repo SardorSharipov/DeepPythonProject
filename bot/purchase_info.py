@@ -3,7 +3,8 @@ import os
 import re
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List
+from typing import List, Callable
+import dateparser
 
 PURCHASE_PATH = "data/purchases/"
 
@@ -92,6 +93,7 @@ def purchase_parsing(message: str, _: int):
         try:
             product_cost = float(parsed)
             price_index = i
+            break
         except:
             pass
     if price_index < 1 or product_cost <= 0:
@@ -100,9 +102,14 @@ def purchase_parsing(message: str, _: int):
     product_name = ' '.join(parsed_input[:price_index])
     date_index = -1
     for i, parsed in enumerate(parsed_input):
+        if price_index >= i:
+            continue
         try:
-            product_date = datetime.strptime(parsed, "%d-%m-%Y")
-            date_index = i
+            check_data = ' '.join(parsed_input[i:])
+            product_date = dateparser.parse(check_data, languages=['ru', 'en'])
+            if product_date:
+                date_index = i
+                break
         except:
             pass
 
@@ -131,7 +138,11 @@ def purchase_parsing(message: str, _: int):
 
 
 def purchase_to_str(purchases: List[PurchaseInfo]):
+    def sort_purchase(x: PurchaseInfo):
+        return x.date
+
     str_made = ''
-    for i, key in enumerate(purchases):
+    for i, key in enumerate(sorted(purchases, key=sort_purchase, reverse=True)):
         str_made += f'{i + 1}. {key.__repr__()}\n'
+
     return str_made

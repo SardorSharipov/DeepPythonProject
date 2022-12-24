@@ -1,5 +1,4 @@
 import telebot
-
 import callback_handler
 import command_handler
 import markups
@@ -24,6 +23,8 @@ def process_commands(message: telebot.types.Message):
             command_handler.add_expense(message, bot_client)
         elif text == '/get_expense':
             command_handler.get_expense(message, bot_client)
+        elif text == '/add_goal':
+            command_handler.goal_show_command(message, bot_client)
         elif message.reply_to_message is not None and message.reply_to_message.text is not None:
             reply_message = message.reply_to_message.text
             if 'Введите Вашу покупку в виде 🤑' in reply_message:
@@ -88,11 +89,6 @@ def process_callback_commands(message):
     callback_handler.query_callback(message, bot_client, phrases.COMMAND_MESSAGE, markups.command_markup)
 
 
-@bot_client.callback_query_handler(func=lambda call: call.data == 'commands')
-def process_callback_commands(message):
-    callback_handler.query_callback(message, bot_client, phrases.COMMAND_MESSAGE, markups.command_markup)
-
-
 @bot_client.callback_query_handler(func=lambda call: call.data == 'goal')
 def process_callback_goal(message):
     callback_handler.goal_show_callback_handler(message, bot_client)
@@ -110,7 +106,18 @@ def process_callback_graphic(message):
 
 @bot_client.callback_query_handler(func=lambda call: call.data == 'filter_purchase')
 def process_callback_filter_purchase(message):
-    callback_handler.query_callback(message, bot_client, phrases.FILTER_MESSAGE, markups.filter_markup)
+    callback_handler.query_callback(message, bot_client, 'Выберите категорию для фильтра', markups.filter_markup)
+
+
+#
+# @bot_client.callback_query_handler(func=lambda call: call.data == 'sort_purchase')
+# def process_callback_filter_purchase(message):
+#     callback_handler.query_callback(message, bot_client, 'Выберите категорию для сортировки', markups.category_markup)
+
+#
+# @bot_client.callback_query_handler(func=lambda call: str(call.data).startswith('category_'))
+# def process_callback_filter_purchase(message):
+#     callback_handler.query_callback(message, bot_client, 'Выберите период...', markups.category_markup)
 
 
 @bot_client.callback_query_handler(func=lambda call: call.data == 'today')

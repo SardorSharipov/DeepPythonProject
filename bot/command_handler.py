@@ -4,7 +4,7 @@ import telebot
 
 import markups as markups
 import phrases as phrases
-from goal import read_goal, check_goal, goal_parser, write_goal
+from goal import read_goal, check_goal, goal_parser, write_goal, has_goal
 from purchase_info import read_purchase, purchase_to_str, purchase_parsing, write_purchase, delete_purchase, \
     delete_purchases
 
@@ -120,3 +120,22 @@ def show_command(e: telebot.types.Message, bot_client: telebot.TeleBot, text: st
                                 reply_markup=markup)
     except Exception as ex:
         print(f"[COMMAND] Error {ex}")
+
+
+def goal_show_command(message: telebot.types.Message, bot_client: telebot.TeleBot):
+    try:
+        if not has_goal(message.chat.id):
+            bot_client.send_message(chat_id=message.chat.id,
+                                    text=phrases.NO_GOAL_REPLY,
+                                    parse_mode='Markdown',
+                                    reply_markup=markups.force)
+        else:
+            goal = read_goal(message.chat.id)
+            text = f"*На данный момент Вы копите на {goal.name}* 💸\n\n" + \
+                   f"До цели ➡ *{goal.price} {goal.currency}*"
+            bot_client.send_message(chat_id=message.chat.id,
+                                    text=text,
+                                    parse_mode='Markdown',
+                                    reply_markup=markups.goal_markup)
+    except Exception:
+        print("[Markup] Error")

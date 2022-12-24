@@ -50,10 +50,28 @@ analysis_markup = types.InlineKeyboardMarkup(
         ],
         [
             # types.InlineKeyboardButton(text='Удалить покупки ❌', callback_data='delete_purchase'),
-            types.InlineKeyboardButton(text='Фильтр ✂', callback_data='filter_purchase')
+            types.InlineKeyboardButton(text='Фильтр ✂', callback_data='filter_purchase'),
+            # types.InlineKeyboardButton(text='Сортировать ⤵', callback_data='sort_purchase'),
         ],
         [
             types.InlineKeyboardButton(text='Главное меню 🔠', callback_data='menu'),
+        ]
+    ]
+)
+
+category_markup = types.InlineKeyboardMarkup(
+    [
+        [
+            types.InlineKeyboardButton(text='Название продукта', callback_data='category_name'),
+        ],
+        [
+            types.InlineKeyboardButton(text='Цена продукта', callback_data='category_price'),
+        ],
+        [
+            types.InlineKeyboardButton(text='Категория продукта', callback_data='category_type'),
+        ],
+        [
+            types.InlineKeyboardButton(text='Дата покупки', callback_data='category_date'),
         ]
     ]
 )
